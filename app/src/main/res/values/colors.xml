@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="corysFavoriteColor">#251af2</color>
+    <color name="colorPrimary">#07381f</color>
+    <color name="colorPrimaryDark">#051e08</color>
+    <color name="colorAccent">#694d39</color>
+    <color name="white">#ffffff</color>
+    <color name="Black">#000000</color>
+    <color name="backgrounds">#96b0e7</color>
 </resources>
