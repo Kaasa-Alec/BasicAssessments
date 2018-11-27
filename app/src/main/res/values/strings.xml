@@ -21,7 +21,7 @@
     <string name="question_num">Questions 1/8</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="ElementTitle">Question Area</string>
 
 
 </resources>

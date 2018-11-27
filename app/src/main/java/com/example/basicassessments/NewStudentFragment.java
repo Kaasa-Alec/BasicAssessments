@@ -3,6 +3,7 @@ package com.example.basicassessments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import android.widget.Toast;
  * A simple {@link Fragment} subclass.
  */
 public class NewStudentFragment extends Fragment implements View.OnClickListener {
-
+    private static final String TAG = "NewStudentFrag";
     private EditText StudentName;
     private EditText StudentID;
     private Button button_save;
@@ -54,6 +55,7 @@ public class NewStudentFragment extends Fragment implements View.OnClickListener
         student.setName(studentName);
 
         newStudentActivity.myAppDatabase.myDao().addName(student);
+        Log.i(TAG,"New Student added.");
         Toast.makeText(getActivity(), "Student added successfully", Toast.LENGTH_SHORT).show();
 
 
