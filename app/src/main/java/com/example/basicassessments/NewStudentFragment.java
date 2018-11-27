@@ -14,16 +14,18 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewStudentFragment extends Fragment implements View.OnClickListener {
+public class NewStudentFragment extends Fragment {
 
     private EditText StudentName;
     private EditText StudentID;
-    private Button button_save;
-    private Button button_cancel;
+    private Button BtnSave;
+    private Button BtnCancel;
 
     public NewStudentFragment() {
         // Required empty public constructor
     }
+
+
 
 
     @Override
@@ -35,30 +37,31 @@ public class NewStudentFragment extends Fragment implements View.OnClickListener
         StudentName = view.findViewById(R.id.student_name);
         StudentID = view.findViewById(R.id.student_id);
 
-        button_save = view.findViewById(R.id.button_save);
+        BtnSave = view.findViewById(R.id.button_save);
 
-        button_save.setOnClickListener(this);
+        BtnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int studentID = Integer.parseInt(StudentID.getText().toString());
+
+                String studentName = StudentName.getText().toString();
+
+                Student student = new Student();
+                student.setId(studentID);
+                student.setName(studentName);
+
+                MainActivity.myAppDatabase.myDao().addName(student);
+                Toast.makeText(getActivity(), "Student added successfully", Toast.LENGTH_SHORT).show();
+
+
+                StudentName.setText("");
+                StudentID.setText("");
+            }
+
+        });
 
         return view;
     }
 
-    @Override
-    public void onClick(View view) {
-
-        int studentID = Integer.parseInt(StudentID.getText().toString());
-
-        String studentName = StudentName.getText().toString();
-
-        Student student = new Student();
-        student.setId(studentID);
-        student.setName(studentName);
-
-        newStudentActivity.myAppDatabase.myDao().addName(student);
-        Toast.makeText(getActivity(), "Student added successfully", Toast.LENGTH_SHORT).show();
-
-
-        StudentName.setText("");
-        StudentID.setText("");
-
-    }
 }
