@@ -19,7 +19,6 @@ public class NewStudentFragment extends Fragment {
     private EditText StudentName;
     private EditText StudentID;
     private Button BtnSave;
-    private Button BtnCancel;
 
     public NewStudentFragment() {
         // Required empty public constructor
