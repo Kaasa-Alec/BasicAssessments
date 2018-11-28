@@ -34,23 +34,5 @@ public class MainActivity extends AppCompatActivity {
                     new HomeFragment()).commit();
         }
 
-
     }
-
-    /*
-    public void newStudent(View view) {
-
-        Intent intent = new Intent(this, newStudentActivity.class);
-
-        startActivity(intent);
-
-    }
-
-    public void currentStudents(View view) {
-
-        Intent intent = new Intent(this, currentStudentsActivity.class);
-
-        startActivity(intent);
-
-    }*/
 }

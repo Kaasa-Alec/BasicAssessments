@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class DeleteStudentFragment extends Fragment {
 
     private EditText TxtStudentId;
-    private Button DeleteButton;
+    private Button BtnDelete;
 
 
     public DeleteStudentFragment() {
@@ -32,9 +32,9 @@ public class DeleteStudentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_delete_student, container, false);
 
         TxtStudentId = view.findViewById(R.id.student_id);
-        DeleteButton = view.findViewById(R.id.button_delete);
+        BtnDelete = view.findViewById(R.id.button_delete);
 
-        DeleteButton.setOnClickListener(new View.OnClickListener() {
+        BtnDelete.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {

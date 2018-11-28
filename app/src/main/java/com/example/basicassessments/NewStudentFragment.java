@@ -53,7 +53,6 @@ public class NewStudentFragment extends Fragment {
                 MainActivity.myAppDatabase.myDao().addName(student);
                 Toast.makeText(getActivity(), "Student added successfully", Toast.LENGTH_SHORT).show();
 
-
                 StudentName.setText("");
                 StudentID.setText("");
             }
