@@ -82,15 +82,24 @@ public class DeleteStudentFragment extends Fragment {
              */
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(TxtStudentId.getText().toString());
-                Student student = new Student();
-                student.setId(id);
-                MainActivity.myAppDatabase.myDao().deleteStudent(student);
 
-                Toast.makeText(getActivity(),"Student successfully removed.",
-                        Toast.LENGTH_SHORT).show();
+                try {
 
-                TxtStudentId.setText("");
+                    int id = Integer.parseInt(TxtStudentId.getText().toString());
+                    Student student = new Student();
+                    student.setId(id);
+                    MainActivity.myAppDatabase.myDao().deleteStudent(student);
+
+                    Toast.makeText(getActivity(), "Student successfully removed.",
+                            Toast.LENGTH_SHORT).show();
+
+                    TxtStudentId.setText("");
+
+                } catch (Exception e) {
+
+                    Toast.makeText(getActivity(), "That lunch number does not exist.", Toast.LENGTH_SHORT).show();
+                    TxtStudentId.setText("");
+                }
             }
 
 
