@@ -7,6 +7,14 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
+/**?
+ * Interface for database transaction methods
+ *
+ * <p>Interface defines the Insert, Delete, and Query database functions.</p>
+ *
+ * @author Alec Kaasa
+ * @version 111.28
+ */
 @Dao
 public interface MyDao {
 

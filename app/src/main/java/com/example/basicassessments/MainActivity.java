@@ -8,12 +8,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+
+/**
+ * Main activity and root for fragments.
+ *
+ * @author Alec Kaasa
+ * @version 11.28
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Obligatory fragment manager.
+     */
     public static FragmentManager fragmentManager;
 
+    /**
+     * Access to the database.
+     */
     public static MyAppDatabase myAppDatabase;
 
+    /**
+     * Creates the Main activity view.
+     *
+     * <p>Contains additional logic to produce the main activity and its dependant fragments.</p>
+     *
+     * @param savedInstanceState Contains the state of the view.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
