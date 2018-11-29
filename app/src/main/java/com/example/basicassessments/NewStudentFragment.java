@@ -91,19 +91,29 @@ public class NewStudentFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                int studentID = Integer.parseInt(StudentID.getText().toString());
+                try {
 
-                String studentName = StudentName.getText().toString();
+                    int studentID = Integer.parseInt(StudentID.getText().toString());
 
-                Student student = new Student();
-                student.setId(studentID);
-                student.setName(studentName);
+                    String studentName = StudentName.getText().toString();
 
-                MainActivity.myAppDatabase.myDao().addName(student);
-                Toast.makeText(getActivity(), "Student added successfully", Toast.LENGTH_SHORT).show();
+                    Student student = new Student();
+                    student.setId(studentID);
+                    student.setName(studentName);
 
-                StudentName.setText("");
-                StudentID.setText("");
+                    MainActivity.myAppDatabase.myDao().addName(student);
+                    Toast.makeText(getActivity(), "Student added successfully.", Toast.LENGTH_SHORT).show();
+
+                    StudentName.setText("");
+                    StudentID.setText("");
+
+                } catch (Exception e) {
+
+                    Toast.makeText(getActivity(), "That lunch number is already in use.", Toast.LENGTH_SHORT).show();
+                    StudentName.setText("");
+                    StudentID.setText("");
+
+                }
             }
 
         });
