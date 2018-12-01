@@ -13,7 +13,7 @@ import java.util.List;
  * <p>Interface defines the Insert, Delete, and Query database functions.</p>
  *
  * @author Alec Kaasa
- * @version 111.28
+ * @version 11.28
  */
 @Dao
 public interface MyDao {
@@ -26,6 +26,8 @@ public interface MyDao {
 
     @Delete
     public void deleteStudent(Student student);
+
+    //TODO Add more queries
 
 
 
