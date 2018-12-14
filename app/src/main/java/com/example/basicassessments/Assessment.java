@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Cory Hassen
  * @version 12.1
  */
-public class Assessment {
+public class Assessment { 
 
     /**
      * Holds all the questions on the test.
