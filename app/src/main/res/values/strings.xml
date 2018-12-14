@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BasicAssessments</string>
+    <string name="app_name">Basic Assessments</string>
     <string name="corys_name">Supreme Leader</string>
     <string name="title_activity_assessment_menu">AssessmentMenu</string>
     <string name="tab_quarter_1">Q1</string>

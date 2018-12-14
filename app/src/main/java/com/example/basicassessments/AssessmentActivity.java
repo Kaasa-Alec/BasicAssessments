@@ -2,6 +2,8 @@ package com.example.basicassessments;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 /**
  * This is the reusable view for most of the tests.
@@ -25,6 +27,15 @@ import android.os.Bundle;
  */
 public class AssessmentActivity extends AppCompatActivity {
 
+    private String TAG = "AssessmentActivity";
+    private String studentName = "";
+    private String id = "";
+    private String quarterSelection = "q1";
+    private String assessmentSelection = "shapes";
+    int idNum = 0;
+    private TextView questionCount;
+    private TextView carrotTrailHeader;
+
     /**
      * Creates the Assessment activity view.
      *
@@ -36,6 +47,29 @@ public class AssessmentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment);
+        getIncomingIntent();
     }
 
+    private void getIncomingIntent(){
+        Log.i(TAG, "getIncomingIntent in");
+
+        if(getIntent().hasExtra("name") && getIntent().hasExtra("id")){
+            Log.i(TAG, "Extras found");
+
+            studentName = getIntent().getStringExtra("name");
+            id = getIntent().getStringExtra("id");
+            assessmentSelection = getIntent().getStringExtra("assessmentSelection");
+            quarterSelection = getIntent().getStringExtra("quarterSelection");
+
+            Log.i(TAG, "Student Name: "+ studentName);
+            Log.i(TAG, "Student ID: "+ id);
+
+            carrotTrailHeader = findViewById(R.id.carrot_trail_assessment);
+            carrotTrailHeader.setText(getString(R.string.carrot_trail)+" "+id+"> "+assessmentSelection);
+
+            idNum = Integer.parseInt(id);
+            Log.i(TAG, "ID parsed as: "+idNum);
+            Log.i(TAG, "getIncomingIntent out");
+        }
+    }
 }
