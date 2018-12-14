@@ -14,7 +14,7 @@
     <string name="btn_sound_identification">Sounds</string>
     <string name="btn_count_100">Counting</string>
     <string name="Start">Start</string>
-    <string name="carrot_trail">Current Student>Bugs Bunny</string>
+    <string name="carrot_trail">Class></string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="btn_next">Next</string>

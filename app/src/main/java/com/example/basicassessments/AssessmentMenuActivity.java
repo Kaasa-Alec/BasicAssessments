@@ -2,6 +2,8 @@ package com.example.basicassessments;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 /**
  * Assessment menu
@@ -24,9 +26,28 @@ public class AssessmentMenuActivity extends AppCompatActivity {
      *
      * @param savedInstanceState Contains the state of the view.
      */
+    private String TAG = "AssessmentMenuActivity";
+//    private String studentName = "";
+//    private int id = 0;
+//    private TextView studentNameHeader = findViewById(R.id.student_name_header);
+//    private TextView carrotTrailHeader = findViewById(R.id.carrot_trail);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment_menu);
+//        getIncomingIntent();
     }
+
+
+//    private void getIncomingIntent(){
+//        Log.i(TAG, "getIncomingIntent in");
+//        if(getIntent().hasExtra("name") && getIntent().hasExtra("id")){
+//            Log.i(TAG, "Extras found");
+//            studentName = getIntent().getStringExtra("name");
+//            getIntent().getIntExtra("id", id);
+//            studentNameHeader.setText(studentName);
+//            carrotTrailHeader.setText(getString(R.string.carrot_trail)+id);
+//        }
+//    }
 }
