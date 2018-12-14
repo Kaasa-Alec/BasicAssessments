@@ -1,5 +1,6 @@
 package com.example.basicassessments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -96,8 +97,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.btn_current_students:
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,
-                        new ReadStudentFragment()).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), CurrentStudentActivityVersion2.class);
+                startActivity(intent);
 
                 break;
 
