@@ -28,9 +28,9 @@ public class AssessmentMenuActivity extends AppCompatActivity {
      */
     private String TAG = "AssessmentMenuActivity";
     private String studentName = "";
-    private int id = 0;
+    private String id = "";
     private TextView studentNameHeader;
-//    private TextView carrotTrailHeader = findViewById(R.id.carrot_trail);
+    private TextView carrotTrailHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +45,15 @@ public class AssessmentMenuActivity extends AppCompatActivity {
         if(getIntent().hasExtra("name"))// && getIntent().hasExtra("id")){
             Log.i(TAG, "Extras found");
             studentName = getIntent().getStringExtra("name");
-            Log.i(TAG, "Student: "+ studentName);
+            Log.i(TAG, "Student Name: "+ studentName);
              studentNameHeader = findViewById(R.id.student_name_header);
-//            getIntent().getIntExtra("id", id);
+             carrotTrailHeader = findViewById(R.id.carrot_trail);
+            id = getIntent().getStringExtra("id");
+        Log.i(TAG, "Student ID: "+ studentName);
             studentNameHeader.setText(studentName);
-//            carrotTrailHeader.setText(getString(R.string.carrot_trail)+id);
+            carrotTrailHeader.setText(getString(R.string.carrot_trail)+id);
+            int idNum = Integer.parseInt(id);
+            Log.i(TAG, "ID parsed as: "+idNum); 
         }
     }
 
