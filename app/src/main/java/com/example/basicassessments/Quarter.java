@@ -21,6 +21,7 @@ public class Quarter {
 
 //    private ArrayList<Assessment> assessments;
 
+    private String TAG = "Quarter";
     private Assessment shapeAssessment;
     private Assessment numberAssessment;
     private Assessment letterAssessment;
@@ -36,26 +37,27 @@ public class Quarter {
 
     }
 
-    public Assessment getAssessmenrt (String type){
-
-        Assessment seletion = buildShapeAssessment();
+    public Assessment getAssessment(String type) {
+        Log.i(TAG, "Line 54 Fired");
+        Assessment selection = buildShapeAssessment();
 
         switch (type)
         {
-            case "shape":
+            case "shapes":
                 break;
-            case "number":
-                seletion = buildNumberAssessment();
+            case "numbers":
+                selection = buildNumberAssessment();
                 break;
-            case "letter":
-                seletion = buildLetterAssessment();
+            case "letters":
+                selection = buildLetterAssessment();
                 break;
-            case "sound":
-                seletion = buildSoundAssessment();
+            case "sounds":
+                selection = buildSoundAssessment();
                 break;
         }
 
-        return seletion;
+        return selection;
+
     }
 
     public Assessment getShapeAssessment() {

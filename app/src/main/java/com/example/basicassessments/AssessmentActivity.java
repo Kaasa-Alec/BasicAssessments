@@ -35,8 +35,8 @@ public class AssessmentActivity extends AppCompatActivity {
     int idNum = 0;
     private TextView questionCount;
     private TextView carrotTrailHeader;
-    private Quarter quarter;
-    private Assessment assessment;
+    private Quarter quarter = new Quarter();
+    private Assessment assessment = quarter.getShapeAssessment();
     private Question question;
 
     /**
@@ -51,18 +51,34 @@ public class AssessmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment);
         getIncomingIntent();
+        Log.i(TAG, "Line 54 Fired with : " + assessmentSelection);
+        assessment = quarter.getAssessment(assessmentSelection);
+        question = assessment.getQuestions().get(0);
+        //todo add for every question in assessment askQuestion loop when askQuestion is stable.
 
-        assessment = quarter.getAssessmenrt(assessmentSelection);
-        //question = assessment.getQuestions()
-        //setQuestionCount();
+
+    }
+
+    private void askQeustion() {
+        setQuestionCount();//unstable
+        setImage();
+
+        //TODO add right and wrong event listeners
+        //TODO store right or wrong.
+        //TODO add next button event listener
+        //TODO advance question to the next assessment index.
+    }
+
+    private void setImage() {
+        //TODO set interface image to filename with following method
+        question.getFilename();
     }
 
     private void setQuestionCount() {
         questionCount.findViewById(R.id.question_count);
         int totCount = assessment.getQuestions().size();
-        int currentCount = assessment.getQuestions().indexOf(question);
-
-
+        int currentCount = (assessment.getQuestions().indexOf(question) + 1);
+        //TODO unstable
 
     }
 

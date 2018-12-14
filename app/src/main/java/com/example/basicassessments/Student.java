@@ -31,6 +31,8 @@ public class Student {
         return id;
     }
 
+    //TODO connect to QuarterTable as a one to many relationship
+
     public void setId(int id) {
         this.id = id;
     }
