@@ -27,27 +27,29 @@ public class AssessmentMenuActivity extends AppCompatActivity {
      * @param savedInstanceState Contains the state of the view.
      */
     private String TAG = "AssessmentMenuActivity";
-//    private String studentName = "";
-//    private int id = 0;
-//    private TextView studentNameHeader = findViewById(R.id.student_name_header);
+    private String studentName = "";
+    private int id = 0;
+    private TextView studentNameHeader;
 //    private TextView carrotTrailHeader = findViewById(R.id.carrot_trail);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment_menu);
-//        getIncomingIntent();
+        getIncomingIntent();
     }
 
 
-//    private void getIncomingIntent(){
-//        Log.i(TAG, "getIncomingIntent in");
-//        if(getIntent().hasExtra("name") && getIntent().hasExtra("id")){
-//            Log.i(TAG, "Extras found");
-//            studentName = getIntent().getStringExtra("name");
+    private void getIncomingIntent(){
+        Log.i(TAG, "getIncomingIntent in");
+        if(getIntent().hasExtra("name"))// && getIntent().hasExtra("id")){
+            Log.i(TAG, "Extras found");
+            studentName = getIntent().getStringExtra("name");
+            Log.i(TAG, "Student: "+ studentName);
+             studentNameHeader = findViewById(R.id.student_name_header);
 //            getIntent().getIntExtra("id", id);
-//            studentNameHeader.setText(studentName);
+            studentNameHeader.setText(studentName);
 //            carrotTrailHeader.setText(getString(R.string.carrot_trail)+id);
-//        }
-//    }
-}
+        }
+    }
+

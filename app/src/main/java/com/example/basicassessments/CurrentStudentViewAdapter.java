@@ -48,8 +48,8 @@ public class CurrentStudentViewAdapter extends RecyclerView.Adapter<CurrentStude
             public void onClick(View v) {
                 Log.i(TAG, listItem.getStudentName() + " Clicked");
                 Intent i = new Intent(context, AssessmentMenuActivity.class);
-//                i.putExtra("name",listItem.getStudentName());
-//                //int idNum = Integer.parseInt(listItem.getStudentName());
+                i.putExtra("name",listItem.getStudentName());
+//                int idNum = Integer.parseInt(listItem.getStudentName());
 //                i.putExtra("id", listItem.getLunchNumber());
                 context.startActivity(i);
             }
