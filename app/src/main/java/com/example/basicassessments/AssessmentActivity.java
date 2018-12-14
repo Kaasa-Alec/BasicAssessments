@@ -35,6 +35,9 @@ public class AssessmentActivity extends AppCompatActivity {
     int idNum = 0;
     private TextView questionCount;
     private TextView carrotTrailHeader;
+    private Quarter quarter;
+    private Assessment assessment;
+    private Question question;
 
     /**
      * Creates the Assessment activity view.
@@ -48,6 +51,19 @@ public class AssessmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment);
         getIncomingIntent();
+
+        assessment = quarter.getAssessmenrt(assessmentSelection);
+        //question = assessment.getQuestions()
+        //setQuestionCount();
+    }
+
+    private void setQuestionCount() {
+        questionCount.findViewById(R.id.question_count);
+        int totCount = assessment.getQuestions().size();
+        int currentCount = assessment.getQuestions().indexOf(question);
+
+
+
     }
 
     private void getIncomingIntent(){

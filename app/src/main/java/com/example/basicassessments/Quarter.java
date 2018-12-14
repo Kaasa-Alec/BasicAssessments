@@ -19,24 +19,75 @@ import java.util.ArrayList;
  */
 public class Quarter {
 
-    private ArrayList<Assessment> assessments;
+//    private ArrayList<Assessment> assessments;
+
+    private Assessment shapeAssessment;
+    private Assessment numberAssessment;
+    private Assessment letterAssessment;
+    private Assessment soundAssessment;
     private int highestCount;
-    private QuarterlyReport report;
 
     public Quarter() {
-        assessments.add(buildShapeAssessment());
-        assessments.add(buildNumberAssessment());
-        assessments.add(buildLetterAssessment());
-        assessments.add(buildShapeAssessment());//TODO replace with sound assessment in.
-        setHighestCount(0);
+        shapeAssessment = buildShapeAssessment();
+        numberAssessment = buildNumberAssessment();
+        letterAssessment = buildLetterAssessment();
+        soundAssessment = buildSoundAssessment();
+
+
     }
 
-    public ArrayList<Assessment> getAssessments() {
-        return assessments;
+    public Assessment getAssessmenrt (String type){
+
+        Assessment seletion = buildShapeAssessment();
+
+        switch (type)
+        {
+            case "shape":
+                break;
+            case "number":
+                seletion = buildNumberAssessment();
+                break;
+            case "letter":
+                seletion = buildLetterAssessment();
+                break;
+            case "sound":
+                seletion = buildSoundAssessment();
+                break;
+        }
+
+        return seletion;
     }
 
-    public void setAssessments(ArrayList<Assessment> assessments) {
-        this.assessments = assessments;
+    public Assessment getShapeAssessment() {
+        return shapeAssessment;
+    }
+
+    public void setShapeAssessment(Assessment shapeAssessment) {
+        this.shapeAssessment = shapeAssessment;
+    }
+
+    public Assessment getNumberAssessment() {
+        return numberAssessment;
+    }
+
+    public void setNumberAssessment(Assessment numberAssessment) {
+        this.numberAssessment = numberAssessment;
+    }
+
+    public Assessment getLetterAssessment() {
+        return letterAssessment;
+    }
+
+    public void setLetterAssessment(Assessment letterAssessment) {
+        this.letterAssessment = letterAssessment;
+    }
+
+    public Assessment getSoundAssessment() {
+        return soundAssessment;
+    }
+
+    public void setSoundAssessment(Assessment soundAssessment) {
+        this.soundAssessment = soundAssessment;
     }
 
     public int getHighestCount() {
@@ -47,17 +98,37 @@ public class Quarter {
         this.highestCount = highestCount;
     }
 
-    public QuarterlyReport getReport() {
-        return report;
-    }
 
-    public void setReport(QuarterlyReport report) {
-        this.report = report;
-    }
+//    private QuarterlyReport report;
 
-    public Quarter(ArrayList<Assessment> assessments) {
-        this.assessments = assessments;
-    }
+//    public Quarter() {
+//        assessments.add(buildShapeAssessment());
+//        assessments.add(buildNumberAssessment());
+//        assessments.add(buildLetterAssessment());
+//        assessments.add(buildShapeAssessment());//TODO replace with sound assessment in.
+//        setHighestCount(0);
+//    }
+
+//    public ArrayList<Assessment> getAssessments() {
+//        return assessments;
+//    }
+//
+//    public void setAssessments(ArrayList<Assessment> assessments) {
+//        this.assessments = assessments;
+//    }
+
+
+//    public QuarterlyReport getReport() {
+//        return report;
+//    }
+//
+//    public void setReport(QuarterlyReport report) {
+//        this.report = report;
+//    }
+
+//    public Quarter(ArrayList<Assessment> assessments) {
+//        this.assessments = assessments;
+//    }
 
     /**
      * Builds the shape assessment.
@@ -166,7 +237,11 @@ public class Quarter {
         return letterAssessment;
     }
 
-    //TODO write buildSoundAssignment()
+    private Assessment buildSoundAssessment() {
+        soundAssessment = buildShapeAssessment();//TODO write buildSoundAssignment()
+        return soundAssessment;
+    }
+
     //TODO write generateReport()
 
 }
