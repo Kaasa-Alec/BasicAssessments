@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".newStudentActivity" />
-        <activity android:name=".currentStudentsActivity" />
         <activity android:name=".AssessmentMenuActivity" />
         <activity android:name=".AssessmentActivity" />
         <activity android:name=".CurrentStudentActivityVersion2" />

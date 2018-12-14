@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("Fired: ", "line 40");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -62,12 +61,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void intention(){
-        Log.i("Fired: ", "line 43");
-        Intent intent = new Intent(this, CurrentStudentActivityVersion2.class);
-        Log.i("Fired: ", "line 45");
-        startActivity(intent);
-        Log.i("Fired: ", "line 47");
-    }
 }
 

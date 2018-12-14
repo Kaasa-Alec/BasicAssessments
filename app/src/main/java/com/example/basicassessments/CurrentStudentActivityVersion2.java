@@ -1,6 +1,7 @@
 package com.example.basicassessments;
 
 
+import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ public class CurrentStudentActivityVersion2 extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<CurrentStudentListItems> activityList;
+    public static MyAppDatabase myAppDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +28,25 @@ public class CurrentStudentActivityVersion2 extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        activityList = new ArrayList<CurrentStudentListItems>();
+        activityList = new ArrayList<>();
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null){
+        myAppDatabase = Room.databaseBuilder(getApplicationContext(),MyAppDatabase.class,"studentdb").allowMainThreadQueries().build();
+
+        List<Student> students = MainActivity.myAppDatabase.myDao().getStudents();
+
+        for(Student i : students)
+        {
+            String id= ""+i.getId();
+            String name = i.getName();
+
+            CurrentStudentListItems nStudent = new CurrentStudentListItems(name,id);
+            activityList.add(nStudent);
+
+            adapter = new CurrentStudentViewAdapter(activityList, this);
+
+            recyclerView.setAdapter(adapter);
+
 
         }
-
-        for(int i = 0; i < 10; i++) {
-
-            CurrentStudentListItems item = new CurrentStudentListItems(
-                    "Student " + (i + 1), "Lunch Number: 8237"+i);
-
-            activityList.add(item);
-        }
-        adapter = new CurrentStudentViewAdapter(activityList, this);
-
-        recyclerView.setAdapter(adapter);
-
     }
 }

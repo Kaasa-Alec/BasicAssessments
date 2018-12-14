@@ -16,7 +16,7 @@ import android.widget.Button;
  *  <h2>User Interaction</h2>
  *
  *  <p>3 buttons allow teachers to enter the {@link NewStudentFragment},
- *  {@link currentStudentsActivity}, or {@link DeleteStudentFragment} views</p>
+ *  {@link CurrentStudentActivityVersion2}, or {@link DeleteStudentFragment} views</p>
  *
  * @author Alec Kaasa
  * @version 11.28
@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button BtnNewStudent;
 
     /**
-     * Access to the UI button to enter the {@link currentStudentsActivity}.
+     * Access to the UI button to enter the {@link CurrentStudentActivityVersion2}.
      */
     private Button BtnCurrentStudents;
 
@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
      * Controls UI button clicks.
      *
      * <p>Redirect the user to the {@link NewStudentFragment},
-     *  *  {@link currentStudentsActivity}, or {@link DeleteStudentFragment} view when they click
+     *  *  {@link CurrentStudentActivityVersion2}, or {@link DeleteStudentFragment} view when they click
      *  the respective button</p>
      *
      * @param view Access to the view.
