@@ -114,7 +114,7 @@ public class AssessmentMenuActivity extends AppCompatActivity {
                 startActivity(i);
             }});
 
-        //TODO figure out how to make these selecters work.
+        //TODO figure out how to make these selectors work.
 //        q1.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v) {

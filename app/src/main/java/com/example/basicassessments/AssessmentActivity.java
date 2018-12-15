@@ -1,8 +1,12 @@
 package com.example.basicassessments;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 /**
@@ -13,9 +17,9 @@ import android.widget.TextView;
  *  <h2>User Interaction</h2>
  *
  *  <p>The image viewer displays a series of images that include a test question. A teacher reads
- *  the question to the child. If he or she answers correctly, the teach presses the a check mark
- *  button and at the appropriate value is stored in the program. If the child answers wrong an 'X'
- *  button is pressed and the appropriate value is stored. The values stored is used later to
+ *  the question to the child. If he or she answers correctly, the teacher presses the check mark
+ *  button and the appropriate value is stored in the program. If the child answers wrong an 'X'
+ *  button is pressed and the appropriate value is stored. The values stored are used later to
  *  generate student reports</p>
  *
  *  <p>
@@ -39,6 +43,12 @@ public class AssessmentActivity extends AppCompatActivity {
     private Assessment assessment = quarter.getShapeAssessment();
     private Question question;
 
+    private Button nextBtn;
+
+    //TODO store right or wrong.
+    public Boolean answer = false;
+
+
     /**
      * Creates the Assessment activity view.
      *
@@ -54,18 +64,47 @@ public class AssessmentActivity extends AppCompatActivity {
         Log.i(TAG, "Line 54 Fired with : " + assessmentSelection);
         assessment = quarter.getAssessment(assessmentSelection);
         question = assessment.getQuestions().get(0);
-        //todo add for every question in assessment askQuestion loop when askQuestion is stable.
 
+        //TODO add for every question in assessment askQuestion loop when askQuestion is stable.
+        //TODO add next button event listener
+        nextBtn = findViewById(R.id.btn_next);
+
+        nextBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        // Check box listener for correct answer
+        FloatingActionButton checkBox = findViewById(R.id.box_correct);
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                answer = true;
+
+            }
+        });
+
+        // X box listener for incorrect answer
+        FloatingActionButton xBox = findViewById(R.id.box_correct);
+        xBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                answer = false;
+
+            }
+        });
 
     }
 
-    private void askQeustion() {
+
+    private void askQuestion() {
         setQuestionCount();//unstable
         setImage();
 
-        //TODO add right and wrong event listeners
-        //TODO store right or wrong.
-        //TODO add next button event listener
         //TODO advance question to the next assessment index.
     }
 
