@@ -78,42 +78,20 @@ public class AssessmentActivity extends AppCompatActivity {
         Log.i(TAG, question.getIdentity());
         questionImage = findViewById(R.id.question_image);
         setImage();//temp
+        setQuestionCount();
 
 
         for (Question qs : assessment.getQuestions()) {
             Log.i(TAG, qs.getIdentity());
         }
 
-        //TODO add for every question in assessment askQuestion loop when askQuestion is stable.
+        //TODO add for every question in assessment askNextQuestion loop when askNextQuestion is stable.
         //TODO add next button event listener
         nextBtn = findViewById(R.id.btn_next);
         nextBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
-
-                answeredQuestions.add(question);
-
-                if ((currentQuestion + 1) < assessment.getQuestions().size()) {
-                    Log.i(TAG, "Current: " + currentQuestion + ", Size: " + assessment.getQuestions().size());
-                    currentQuestion++;
-                    question = assessment.getQuestions().get(currentQuestion);
-                    setImage();
-                } else {
-                    Log.i(TAG, "Assessment Finished");
-                    Toast t = Toast.makeText(getApplicationContext(), "Assessment Finished", Toast.LENGTH_LONG);
-                    t.show();
-                    //assessment.setQuestions(answeredQuestions);
-                }
-
-                String q = "";
-                int count = 0;
-                Log.i(TAG, "Question: subject: " + question.getSubject() + ", ID: " + question.getIdentity());
-                for (Question qs : answeredQuestions) {
-                    count++;
-                    q = count + ". 1d: " + qs.getIdentity() + ", isCorrect: " + qs.isAnsweredCorrect();
-                }
-                Log.i(TAG, "Answered questions: " + q);
+                askNextQuestion();
             }
         });
 
@@ -122,25 +100,47 @@ public class AssessmentActivity extends AppCompatActivity {
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i(TAG, "check pushed");
                 question.setAnsweredCorrect(true);
             }
         });
 
         // X box listener for incorrect answer
-        FloatingActionButton xBox = findViewById(R.id.box_correct);
+        FloatingActionButton xBox = findViewById(R.id.box_wrong);
         xBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i(TAG, "X pushed");
                 question.setAnsweredCorrect(false);
             }
         });
     }
 
 
-    private void askQuestion() {
-        setQuestionCount();//unstable
-        setImage();
+    private void askNextQuestion() {
+        answeredQuestions.add(question);
 
+        if ((currentQuestion + 1) < assessment.getQuestions().size()) {
+            Log.i(TAG, "Current: " + currentQuestion + ", Size: " + assessment.getQuestions().size());
+            currentQuestion++;
+            question = assessment.getQuestions().get(currentQuestion);
+            setImage();
+            setQuestionCount();
+        } else {
+            Log.i(TAG, "Assessment Finished");
+            Toast t = Toast.makeText(getApplicationContext(), "Assessment Finished", Toast.LENGTH_LONG);
+            t.show();
+            //assessment.setQuestions(answeredQuestions);
+        }
+
+        String q = "";
+        int count = 0;
+        Log.i(TAG, "Question: subject: " + question.getSubject() + ", ID: " + question.getIdentity());
+        for (Question qs : answeredQuestions) {
+            count++;
+            q = count + ". 1d: " + qs.getIdentity() + ", isCorrect: " + qs.isAnsweredCorrect();
+        }
+        Log.i(TAG, "Answered questions: " + q);
         //TODO advance question to the next assessment index.
     }
 
@@ -151,9 +151,11 @@ public class AssessmentActivity extends AppCompatActivity {
     }
 
     private void setQuestionCount() {
-        questionCount.findViewById(R.id.question_count);
+        questionCount = findViewById(R.id.question_count);
         int totCount = assessment.getQuestions().size();
-        int currentCount = (assessment.getQuestions().indexOf(question) + 1);
+        int currentCount = (currentQuestion + 1);
+        questionCount = findViewById(R.id.question_count);
+        questionCount.setText("Question " + currentCount + " of " + totCount);
         //TODO unstable
 
     }
