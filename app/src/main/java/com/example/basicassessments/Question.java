@@ -1,5 +1,8 @@
 package com.example.basicassessments;
 
+import android.graphics.drawable.BitmapDrawable;
+
+
 /**
  * Holds attributes of a question.
  *
@@ -7,7 +10,7 @@ package com.example.basicassessments;
  * screen and is marked right or wrong when by the teach, setting the answeredCorrect to either true
  * or false. Question are organized by two IDs: the subject, indicates which assessment it comes
  * from(shapes, letters, numbers, etc.), and the identity, which indicates what the question asked
- * (Circle? 13? A? a?) this will be used to generate the report.</p>
+ * (Circle? 13? uppercase_a? a?) this will be used to generate the report.</p>
  *
  * @author Cory Hadden
  * @version 12.1
@@ -31,22 +34,22 @@ public class Question {
     private boolean answeredCorrect;
 
     /**
-     * File path to the question .png: .../res->questions->[subject]->[filename].png.
+     * File path to the question .png: .../res->questions->[subject]->[drawable].png.
      */
-    private String filename;
+    private int drawable;
 
-    public Question(String subject, String identity, String filename) {
+    public Question(String subject, String identity, int drawable) {
         setSubject(subject);
         setIdentity(identity);
         this.answeredCorrect = false;
-        this.filename = filename;
+        this.drawable = drawable;
+
     }
 
     public Question() {
         this.subject = "unassigned";
         this.identity = "unassigned";
         this.answeredCorrect = false;
-        this.filename = "unassigned";
 
     }
 
@@ -74,12 +77,12 @@ public class Question {
         this.answeredCorrect = answeredCorrect;
     }
 
-    public String getFilename() {
-        return filename;
+    public int getDrawable() {
+        return drawable;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setDrawable(int drawable) {
+        this.drawable = drawable;
     }
 
 

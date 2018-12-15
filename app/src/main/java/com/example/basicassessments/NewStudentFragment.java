@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 
 /**
- * A view to create new {@link Student}s.
+ * uppercase_a view to create new {@link Student}s.
  *
- * <p>A simple {@link Fragment} subclass.</p>
+ * <p>uppercase_a simple {@link Fragment} subclass.</p>
  *
  * <h2>User Interaction</h2>
  *

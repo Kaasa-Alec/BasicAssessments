@@ -11,7 +11,7 @@ import android.widget.Button;
 /**
  * Dashboard menu view for the app.
  *
- *  A simple {@link Fragment} subclass.
+ *  uppercase_a simple {@link Fragment} subclass.
  *
  *  <h2>User Interaction</h2>
  *

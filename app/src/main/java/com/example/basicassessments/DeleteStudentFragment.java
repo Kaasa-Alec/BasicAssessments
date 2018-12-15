@@ -14,7 +14,7 @@ import android.widget.Toast;
 /**
  * Screen to delete student from {@link MyDao} database.
  *
- * <p>A simple {@link Fragment} subclass.</p>
+ * <p>uppercase_a simple {@link Fragment} subclass.</p>
  *
  * <h2>User Interaction</h2>
  *
