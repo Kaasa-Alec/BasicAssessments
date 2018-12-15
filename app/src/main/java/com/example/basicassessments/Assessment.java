@@ -17,22 +17,41 @@ public class Assessment {
     /**
      * Holds all the questions on the test.
      */
-    private ArrayList<Question> questions;
+    private ArrayList<Question> questions = new ArrayList<>();
 
     /**
      * Holds all the missed questions.
      */
-    private ArrayList<Question> missedList;
+    private ArrayList<Question> missedList = new ArrayList<>();
 
     /**
      * Holds all the questions answered correctly.
      */
-    private ArrayList<Question> correctList;
+    private ArrayList<Question> correctList = new ArrayList<>();
 
     /**
      * Holds a score as a percentage.
      */
     private double score;
+
+    public String getReport() {
+
+        refreshAssessmentList();
+        calculateScore();
+
+        report = "\nTotal Score: " + score + "\n\n" + "Questions missed:\n";
+
+        int count = 1;
+        for (Question q : missedList) {
+            report += "  " + count + "." + q.getIdentity() + "\n";
+            count++;
+        }
+
+
+        return report;
+    }
+
+    private String report;
 
 
     public Assessment(ArrayList<Question> questions) {
