@@ -144,37 +144,37 @@ public class Quarter {
      */
     private Assessment buildShapeAssessment(){
 
-        //Build questions.
-//        Question q0 = new Question("Shapes", "Square",
-//                "app/src/questions/shapes/square.png");
-//        Question q1 = new Question("Shapes", "Triangle",
-//                "app/src/questions/shapes/triangle.png");
-//        Question q2 = new Question("Shapes", "Circle",
-//                "app/src/questions/shapes/circle.png");
-//        Question q3 = new Question("Shapes", "Rectangle",
-//                "app/src/questions/shapes/rectangle.png");
-//        Question q4 = new Question("Shapes", "Hexagon",
-//                "app/src/questions/shapes/hexagon.png");
-//        Question q5 = new Question("Shapes", "Sphere",
-//                "app/src/questions/shapes/sphere.png");
-//        Question q6 = new Question("Shapes", "Cone",
-//                "app/src/questions/shapes/cone.png");
-//        Question q7 = new Question("Shapes", "Cylinder",
-//                "app/src/questions/shapes/cylinder.png");
-//        Question q8 = new Question("Shapes", "Cube",
-//                "app/src/questions/shapes/cube.png");
-//
-//        //Pack questions into a list.
+
+        int img = R.drawable.shape_square;
+        Question q0 = new Question("Shapes", "Square", img);
+        img = R.drawable.shape_triangle;
+        Question q1 = new Question("Shapes", "Triangle", img);
+        img = R.drawable.shape_circle;
+        Question q2 = new Question("Shapes", "Circle", img);
+        img = R.drawable.shape_rectangle;
+        Question q3 = new Question("Shapes", "Rectangle", img);
+        img = R.drawable.shape_hexagon;
+        Question q4 = new Question("Shapes", "Hexagon", img);
+        img = R.drawable.shape_sphere;
+        Question q5 = new Question("Shapes", "Sphere", img);
+        img = R.drawable.shape_cone;
+        Question q6 = new Question("Shapes", "Cone", img);
+        img = R.drawable.shape_cylinder;
+        Question q7 = new Question("Shapes", "Cylinder", img);
+        img = R.drawable.shape_cube;
+        Question q8 = new Question("Shapes", "Cube", img);
+
+        //Pack questions into a list.
         ArrayList<Question> questions= new ArrayList<Question>();
-//        questions.add(q0);
-//        questions.add(q1);
-//        questions.add(q2);
-//        questions.add(q3);
-//        questions.add(q4);
-//        questions.add(q5);
-//        questions.add(q6);
-//        questions.add(q7);
-//        questions.add(q8);
+        questions.add(q0);
+        questions.add(q1);
+        questions.add(q2);
+        questions.add(q3);
+        questions.add(q4);
+        questions.add(q5);
+        questions.add(q6);
+        questions.add(q7);
+        questions.add(q8);
 
         //Build Assessment.
         Assessment shapeAssessment = new Assessment(questions);
@@ -193,13 +193,16 @@ public class Quarter {
 
         ArrayList<Question> questions= new ArrayList<Question>();
 
+        int img = R.drawable.number_01;
+
         //Build questions & add to an array.
         for (int i = 0; i < 20; i++) {
+            if (i != 0) {
+                img++;
+            }
             String countStr = Integer.toString(i); //Annoying java int to string conversion.
-
-//            Question q = new Question("Numbers", countStr,
-//                    );
-//            questions.add(q);
+            Question q = new Question("Numbers", countStr, img);
+            questions.add(q);
         }
 
         Assessment numberAssessment = new Assessment(questions);
@@ -235,7 +238,7 @@ public class Quarter {
         img = R.drawable.lowercase_a;
         asciiCode = 97; //Set to "a"
         for (int i = 0; i < 26; i++) {//Only lowercase letters in this loop.
-            if (i != 0 && i < 26) {
+            if (i != 0) {
                 img++;
             }
             char letter = (char) asciiCode;//Annoying java int to char conversion.
