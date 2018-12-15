@@ -51,7 +51,6 @@ public class AssessmentActivity extends AppCompatActivity {
     private Assessment assessment = quarter.getShapeAssessment();
     private Question question;
     private ArrayList<Question> answeredQuestions = new ArrayList<>();
-
     private Button nextBtn;
 
     //TODO store right or wrong.
@@ -84,10 +83,10 @@ public class AssessmentActivity extends AppCompatActivity {
         for (Question qs : assessment.getQuestions()) {
             Log.i(TAG, qs.getIdentity());
         }
+
         //TODO add for every question in assessment askQuestion loop when askQuestion is stable.
         //TODO add next button event listener
         nextBtn = findViewById(R.id.btn_next);
-
         nextBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

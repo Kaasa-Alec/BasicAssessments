@@ -1,14 +1,15 @@
 package com.example.basicassessments;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabItem;
-import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Assessment menu
@@ -48,6 +49,7 @@ public class AssessmentMenuActivity extends AppCompatActivity {
     private TabItem q4;
     private TextView studentNameHeader;
     private TextView carrotTrailHeader;
+    FloatingActionButton downloadBtn;
 
 
     @Override
@@ -91,15 +93,19 @@ public class AssessmentMenuActivity extends AppCompatActivity {
         soundBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                assessmentSelection = "sounds";
-                Log.i(TAG, "Assessment selected: " + assessmentSelection);
+                // assessmentSelection = "sounds";
+                Toast t = Toast.makeText(getApplicationContext(), "Feature not yet available.", Toast.LENGTH_LONG);
+                t.show();
+                //Log.i(TAG, "Assessment selected: " + assessmentSelection);
             }});
 
         countBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                assessmentSelection = "count";
-                Log.i(TAG, "Assessment selected: " + assessmentSelection);
+                // assessmentSelection = "count";
+                Toast t = Toast.makeText(getApplicationContext(), "Feature not yet available.", Toast.LENGTH_LONG);
+                t.show();
+                // Log.i(TAG, "Assessment selected: " + assessmentSelection);
             }});
 
         startBtn.setOnClickListener(new View.OnClickListener(){
@@ -113,6 +119,16 @@ public class AssessmentMenuActivity extends AppCompatActivity {
                 i.putExtra("quarterSelection", quarterSelection);
                 startActivity(i);
             }});
+
+        downloadBtn = findViewById(R.id.download_btn);
+        downloadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast t = Toast.makeText(getApplicationContext(), "Feature not yet available.", Toast.LENGTH_LONG);
+                t.show();
+            }
+        });
+
 
         //TODO figure out how to make these selectors work.
 //        q1.setOnClickListener(new View.OnClickListener(){
