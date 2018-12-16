@@ -22,6 +22,7 @@ public class Student {
 
     public Student() {
         setName("*slave labor*");
+        q1ShapeReport = "Joe Mama";
     }
 
     @ColumnInfo(name = "student_name")

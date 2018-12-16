@@ -25,6 +25,9 @@ public interface MyDao {
     @Query("select * from students")
     public List<Student> getStudents();
 
+    @Query("select q1_shape_report from students where id = :studentId")
+    public int[] getShapeReport(int studentId);
+
     @Delete
     public void deleteStudent(Student student);
 

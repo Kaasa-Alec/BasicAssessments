@@ -34,7 +34,7 @@ public class AssessmentMenuActivity extends AppCompatActivity {
      */
     private String TAG = "AssessmentMenuActivity";
     private String studentName = "";
-    private String id = "";
+    private String studentId = "";
     private String quarterSelection = "q1";
     private String assessmentSelection = "shapes";
     private Button shapeBtn;
@@ -49,6 +49,7 @@ public class AssessmentMenuActivity extends AppCompatActivity {
     private TabItem q4;
     private TextView studentNameHeader;
     private TextView carrotTrailHeader;
+    private TextView reportString;
     FloatingActionButton downloadBtn;
 
 
@@ -74,6 +75,11 @@ public class AssessmentMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 assessmentSelection = "shapes";
                 Log.i(TAG, "Assessment selected: " + assessmentSelection);
+
+                /*int studentIdInt = Integer.parseInt(studentId);
+
+                reportString = findViewById(R.id.reportView);
+                reportString.setText((MainActivity.myAppDatabase.myDao().getShapeReport(studentIdInt)));*/
         }});
 
         letterBtn.setOnClickListener(new View.OnClickListener(){
@@ -114,7 +120,7 @@ public class AssessmentMenuActivity extends AppCompatActivity {
                 Log.i(TAG, "Start selected");
                 Intent i =new Intent(AssessmentMenuActivity.this, AssessmentActivity.class);
                 i.putExtra("name",studentName);
-                i.putExtra("id", id);
+                i.putExtra("id", studentId);
                 i.putExtra("assessmentSelection", assessmentSelection);
                 i.putExtra("quarterSelection", quarterSelection);
                 startActivity(i);
@@ -174,11 +180,11 @@ public class AssessmentMenuActivity extends AppCompatActivity {
             studentNameHeader = findViewById(R.id.student_name_header);
             carrotTrailHeader = findViewById(R.id.carrot_trail);
 
-            id = getIntent().getStringExtra("id");
+            studentId = getIntent().getStringExtra("id");
             studentNameHeader.setText(studentName);
-            Log.i(TAG, "Student ID: "+ id);
+            Log.i(TAG, "Student ID: "+ studentId);
 
-            carrotTrailHeader.setText(getString(R.string.carrot_trail)+id);
+            carrotTrailHeader.setText(getString(R.string.carrot_trail)+studentId);
         }
 
 
