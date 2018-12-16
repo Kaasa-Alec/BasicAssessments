@@ -47,6 +47,6 @@ public class CurrentStudentActivityVersion2 extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
 
 
-        }
+        }   
     }
 }
