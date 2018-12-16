@@ -120,7 +120,7 @@ public class AssessmentActivity extends AppCompatActivity {
     private void askNextQuestion() {
         answeredQuestions.add(question);
 
-        if ((currentQuestion + 1) < assessment.getQuestions().size()) {
+        if ((currentQuestion + 1) < assessment.getQuestions().size()) {//till we reach the end
             Log.i(TAG, "Current: " + currentQuestion + ", Size: " + assessment.getQuestions().size());
             currentQuestion++;
             question = assessment.getQuestions().get(currentQuestion);
@@ -130,7 +130,14 @@ public class AssessmentActivity extends AppCompatActivity {
             Log.i(TAG, "Assessment Finished");
             Toast t = Toast.makeText(getApplicationContext(), "Assessment Finished", Toast.LENGTH_LONG);
             t.show();
-            //assessment.setQuestions(answeredQuestions);
+            assessment.setQuestions(answeredQuestions);
+            Log.i(TAG, assessment.getReport());
+
+//            Student nStudent = new Student();
+//            idNum = Integer.parseInt(id);
+//            nStudent.setId(idNum);
+//            nStudent.setQ1ShapeReport(assessment.getReport());
+//            MainActivity.myAppDatabase.myDao().updateStudent(nStudent);
         }
 
         String q = "";
@@ -141,11 +148,9 @@ public class AssessmentActivity extends AppCompatActivity {
             q = count + ". 1d: " + qs.getIdentity() + ", isCorrect: " + qs.isAnsweredCorrect();
         }
         Log.i(TAG, "Answered questions: " + q);
-        //TODO advance question to the next assessment index.
     }
 
     private void setImage() {
-        //TODO set interface image to filename with following method
         Log.i(TAG, "setImage in");
         questionImage.setImageResource(question.getDrawable());
     }
@@ -156,8 +161,6 @@ public class AssessmentActivity extends AppCompatActivity {
         int currentCount = (currentQuestion + 1);
         questionCount = findViewById(R.id.question_count);
         questionCount.setText("Question " + currentCount + " of " + totCount);
-        //TODO unstable
-
     }
 
     private void getIncomingIntent(){
