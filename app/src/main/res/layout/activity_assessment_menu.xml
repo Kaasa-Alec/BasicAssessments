@@ -173,7 +173,7 @@
         android:text="@string/btn_shape_identification"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/viewPager2"
+        app:layout_constraintEnd_toStartOf="@+id/reportView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
@@ -210,10 +210,10 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager2" />
+        app:layout_constraintTop_toBottomOf="@+id/reportView" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager2"
+        android:id="@+id/reportView"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginEnd="8dp"
@@ -221,6 +221,7 @@
         android:background="@color/backgrounds"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/toolbar"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout2">
 
@@ -235,8 +236,8 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         app:backgroundTint="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="@+id/viewPager2"
-        app:layout_constraintEnd_toEndOf="@+id/viewPager2"
+        app:layout_constraintBottom_toBottomOf="@+id/reportView"
+        app:layout_constraintEnd_toEndOf="@+id/reportView"
         app:srcCompat="@android:drawable/stat_sys_download"
         android:focusable="true" />
 

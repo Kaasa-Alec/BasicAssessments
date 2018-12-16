@@ -1,6 +1,7 @@
 package com.example.basicassessments;
 
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,10 +54,6 @@ public class AssessmentActivity extends AppCompatActivity {
     private ArrayList<Question> answeredQuestions = new ArrayList<>();
     private Button nextBtn;
 
-    //TODO store right or wrong.
-    public Boolean answer = false;
-
-
     /**
      * Creates the Assessment activity view.
      *
@@ -85,8 +82,6 @@ public class AssessmentActivity extends AppCompatActivity {
             Log.i(TAG, qs.getIdentity());
         }
 
-        //TODO add for every question in assessment askNextQuestion loop when askNextQuestion is stable.
-        //TODO add next button event listener
         nextBtn = findViewById(R.id.btn_next);
         nextBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -133,11 +128,20 @@ public class AssessmentActivity extends AppCompatActivity {
             assessment.setQuestions(answeredQuestions);
             Log.i(TAG, assessment.getReport());
 
-//            Student nStudent = new Student();
-//            idNum = Integer.parseInt(id);
-//            nStudent.setId(idNum);
-//            nStudent.setQ1ShapeReport(assessment.getReport());
-//            MainActivity.myAppDatabase.myDao().updateStudent(nStudent);
+            Student nStudent = new Student();
+            idNum = Integer.parseInt(id);
+
+            // studentName = nStudent.getName();
+            // nStudent.setName(studentName);
+            // nStudent.setId(idNum);
+
+            nStudent.setQ1ShapeReport(assessment.getReport());
+            MainActivity.myAppDatabase.myDao().updateStudent(nStudent);
+
+            // Print Report in the TextView box by the assessment selection.
+
+            // ViewPager reportString = findViewById(R.id.reportView);
+            // reportString.text(nStudent.getQ1ShapeReport());
         }
 
         String q = "";
@@ -185,4 +189,14 @@ public class AssessmentActivity extends AppCompatActivity {
             Log.i(TAG, "getIncomingIntent out");
         }
     }
+
+    /*private void displayReport(View v) {
+
+        reportString = assessment.getReport();
+
+        TextView report = findViewById(R.id.reportView);
+
+        report.setText(reportString);
+
+    }*/
 }
