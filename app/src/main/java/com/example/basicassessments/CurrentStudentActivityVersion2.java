@@ -32,7 +32,7 @@ public class CurrentStudentActivityVersion2 extends AppCompatActivity {
 
         myAppDatabase = Room.databaseBuilder(getApplicationContext(),MyAppDatabase.class,"studentdb").allowMainThreadQueries().build();
 
-        List<Student> students = students = MainActivity.myAppDatabase.myDao().getStudents();
+        List<Student> students = MainActivity.myAppDatabase.myDao().getStudents();
 
         for(Student i : students)
         {
